@@ -1,4 +1,3 @@
-from html.entities import entitydefs
 
 
 def get_payslip_prompt(pdf_text: str) -> str:
