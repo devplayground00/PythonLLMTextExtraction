@@ -1,7 +1,7 @@
 import pyodbc
 import asyncio
 
-class DatabeHelper:
+class DatabaseHelper:
     CONNECTION_STRING = (
         "DRIVER={SQL Server};"
         "SERVER=localhost\\SQLEXPRESS;"
@@ -15,7 +15,7 @@ class DatabeHelper:
         profile = {}
         try:
             loop = asyncio.get_running_loop()
-            connection = await loop.run_in_executor(None,pyodbc.connect,DatabeHelper.CONNECTION_STRING)
+            connection = await loop.run_in_executor(None,pyodbc.connect,DatabaseHelper.CONNECTION_STRING)
             cursor = connection.cursor()
             query = "SELECT * FROM SystemProfile WHERE Profile = 'PythonLLMAPI'"
             cursor.execute(query)
